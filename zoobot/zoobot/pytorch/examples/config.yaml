@@ -1,0 +1,84 @@
+# config.yaml
+project: zoobot astroaug optim
+program: /home/patrikas_v/to_zip/zoobot/zoobot/pytorch/examples/script.py
+method: random
+metric:
+  name: val/supervised_loss_epoch
+  goal: minimize
+parameters:
+  batch_size:
+    value: 256
+  epochs:
+    value: 3
+  patience:
+    value: 8
+  gpus:
+    value: 2
+  logger_pictures:
+    value: True
+  add_default_albumentations:
+    value: False
+  add_astroaugmentations:
+    value: True
+  random_state:
+    value: 42
+
+#astroaugmentations parameters
+  resize_size:
+    value: 64
+  elastic_sigma:
+      min: 100
+      max: 200
+  elastic_alpha_affine:
+    values: [2, 3]
+  p_elastic:
+      min: 0.
+      max: 1.
+  gaussian_extent_min:
+   values: [5, 10]
+  gaussian_extent_max:
+   values: [10, 30]
+  gaussian_max_number:
+   values: [5]
+  p_gaussian:
+      min: 0.
+      max: 1.
+  p_croppedtemplateoverlap:
+    min: 0.
+    max: 1.
+  brightness_gradient_minimum:
+      min: 0.
+      max: 0.8
+  brightness_gradient_noise:
+      min: 0.
+      max: 0.8
+  p_brightness_gradient:
+      min: 0.
+      max: 1.
+  album_shift_limit:
+      min: 0.1
+      max: 0.3
+  album_scale_limit:
+      min: 0.1
+      max: 0.3
+  album_rotate_limit:
+      min: 45
+      max: 180
+  p_album_shiftscalerotate:
+      min: 0.
+      max: 1.
+  p_flip:
+      min: 0.
+      max: 1.
+  channelwisedropout_max_fraction:
+      min: 0.05
+      max: 0.3
+  channelwisedropout_min_width:
+    values: [5, 10]
+  channelwisedropout_min_height:
+      values: [5, 10]
+  channelwisedropout_max_holes:
+      values: [5, 10]
+  p_channelwisedropout:
+      min: 0.
+      max: 1.
